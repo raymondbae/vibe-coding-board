@@ -1,0 +1,230 @@
+/* 🚀 Antigravity Premium Vibe-Board Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Harmonious Slate Dark Palette (딥 다크 테마) */
+  --bg-primary: hsl(220, 24%, 7%);       /* 배경: 심해색 딥슬레이트 */
+  --bg-secondary: hsl(222, 20%, 12%);    /* 서브배경: 밝은 네이비 다크 */
+  --bg-glass: hsla(222, 20%, 12%, 0.6);   /* 글래스모피즘용 반투명 배경 */
+  --border-glass: hsla(0, 0%, 100%, 0.08);/* 글래스모피즘용 미세 흰색 테두리 */
+  
+  /* Text System (Outfit, Inter 폰트 최적화) */
+  --font-title: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --text-primary: hsl(210, 40%, 98%);     /* 주 텍스트: 백색에 가까운 블루화이트 */
+  --text-secondary: hsl(215, 16%, 70%);   /* 부 텍스트: 은회색 */
+  --text-muted: hsl(215, 12%, 50%);       /* 정보/캡션: 뮤트 그레이 */
+
+  /* Harmonious HSL Accent Colors (네온 액센트) */
+  --accent-blue: hsl(224, 100%, 65%);     /* 주 액센트: 일렉트릭 블루 */
+  --accent-purple: hsl(263, 90%, 65%);   /* 부 액센트: 바이올렛 */
+  --accent-emerald: hsl(150, 80%, 55%);  /* 성공/조회: 에메랄드 그린 */
+  --accent-rose: hsl(340, 85%, 60%);     /* 경고/삭제: 로즈 핑크 */
+  
+  /* 듀얼 그라데이션 */
+  --gradient-accent: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+  --gradient-glass: linear-gradient(135deg, hsla(0, 0%, 100%, 0.05) 0%, hsla(0, 0%, 100%, 0.01) 100%);
+  
+  /* Glassmorphism Shadows & Blur */
+  --blur-amount: 16px;
+  --shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --shadow-neon: 0 0 15px hsla(224, 100%, 65%, 0.15);
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-sm: 6px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Base & Reset Style --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(at 10% 20%, hsla(224, 100%, 65%, 0.05) 0px, transparent 50%),
+    radial-gradient(at 90% 80%, hsla(263, 90%, 65%, 0.04) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* --- Layout Container --- */
+.board-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Glassmorphism Card --- */
+.glass-card {
+  background: var(--bg-glass);
+  background-image: var(--gradient-glass);
+  backdrop-filter: blur(var(--blur-amount));
+  -webkit-backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-premium);
+  padding: 40px;
+  transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: hsla(224, 100%, 65%, 0.15);
+  box-shadow: var(--shadow-premium), var(--shadow-neon);
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.gradient-text {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Interactive Elements --- */
+a, button {
+  font-family: var(--font-body);
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  color: var(--text-primary);
+  text-decoration: none;
+  background: transparent;
+  outline: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.btn-primary {
+  background: var(--gradient-accent);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+}
+
+.btn-secondary {
+  background: hsla(0, 0%, 100%, 0.05);
+  border: 1px solid var(--border-glass);
+}
+
+.btn-secondary:hover {
+  background: hsla(0, 0%, 100%, 0.1);
+  border-color: hsla(0, 0%, 100%, 0.2);
+}
+
+.btn-danger {
+  background: hsla(340, 85%, 60%, 0.15);
+  border: 1px solid hsla(340, 85%, 60%, 0.3);
+  color: var(--accent-rose);
+}
+
+.btn-danger:hover {
+  background: var(--accent-rose);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);
+}
+
+/* --- Form Controls --- */
+.form-group {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  transition: var(--transition-smooth);
+}
+
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  padding: 14px 18px;
+  background: hsla(222, 20%, 12%, 0.5);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+  outline: none;
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--accent-blue);
+  background: hsla(222, 20%, 12%, 0.8);
+  box-shadow: 0 0 0 4px hsla(224, 100%, 65%, 0.12);
+}
+
+.form-textarea {
+  min-height: 200px;
+  resize: vertical;
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsla(0, 0%, 100%, 0.15);
+}
