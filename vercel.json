@@ -19,8 +19,12 @@
       "dest": "api/index.ts"
     },
     {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
+      "src": "/(assets|src|node_modules|@vite|@id)/(.*)",
+      "dest": "/$1/$2"
+    },
+    {
+      "src": "/(.*)\\.(js|css|png|jpg|jpeg|gif|ico|svg|vue|ts|json)$",
+      "dest": "/$1.$2"
     },
     {
       "src": "/(.*)",
